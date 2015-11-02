@@ -29,7 +29,7 @@ Transformer
 
   Example:
 
-    <var newTransformer = new Transformer('bitmap.bmp');>
+    `var newTransformer = new Transformer('bitmap.bmp');`
 
 * invert()
 
@@ -39,8 +39,8 @@ Transformer
   an image identical to the original). The file will not be written (see:
   `writeFile`). Example:
 
-    <var bitmap = new Transformer('bitmap.bmp');
-    bitmap.invert();>
+    `var bitmap = new Transformer('bitmap.bmp');
+    bitmap.invert();`
 
 * transform(transformF)
 
@@ -48,16 +48,16 @@ Transformer
   each individual byte from the bitmap palette. The file will not be written
   (see: `writeFile`). Example:
 
-    <bitmap.transform(function(byte) {
+    `bitmap.transform(function(byte) {
       return Math.floor(byte / 3);
-    });>
+    });`
 
 * restore()
 
   Restore the color palette to its original state. The file will not be written
   (see: `writeFile`). Example:
 
-    <bitmap.restore();>
+    `bitmap.restore();`
 
 * writeFile([filename[, palette]])
 
@@ -66,26 +66,26 @@ Transformer
   if no name is supplied); and a user-supplied palette. Neither is necessary,
   but to supply a custom palette, a filename must be offered. Example:
 
-    <bitmap.writeFile('myBitmap', newPalette);
+    `bitmap.writeFile('myBitmap', newPalette);
         // Saves 'myBitmap.bmp' with custom palette.
     bitmap.writeFile('myBitmap');
         // Saves 'myBitmap.bmp' with current palette.
     bitmap.writeFile();
-        // Saves 'newBitmap.bmp' with current palette.>
+        // Saves 'newBitmap.bmp' with current palette.`
 
 * getMetadata()
 
   Returns a string of basic information about the bitmap, including width, height,
   number of colors, and the offset of the pixel map. Example:
 
-    <bitmap.getMetadata();
+    `bitmap.getMetadata();
 
     // Returns:
 
     // Width: 100
     // Height: 100
     // Number of Colors: 256
-    // PixelStart: 1078>
+    // PixelStart: 1078`
 
 In Development
 --------------
