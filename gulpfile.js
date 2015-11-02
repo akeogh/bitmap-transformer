@@ -7,18 +7,26 @@ var testFiles = ['gulpfile.js', 'test/**/*.js'];
 
 gulp.task('jshint:apps', function() {
   return gulp.src(appFiles)
-    .pipe(jshint())
+    .pipe(jshint({
+      node: true,
+      globals: {
+        describe:true,
+        it:true
+      }
+    }))
     .pipe(jshint.reporter('default'));
 });
 
 gulp.task('jshint:tests', function() {
   return gulp.src(testFiles)
-    .pipe(jshint({node: true,
+    .pipe(jshint({
+      node: true,
       globals: {
         describe:true,
         it:true
       }
-  })).pipe(jshint.reporter('default'));
+    }))
+    .pipe(jshint.reporter('default'));
 });
 
 gulp.task('jshint', ['jshint:apps', 'jshint:tests']);

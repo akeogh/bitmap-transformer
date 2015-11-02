@@ -11,12 +11,12 @@ own transformations.
 
 Table of Contents
 -----------------
-* Constructor(bitmapFile)
-* invert()
-* transform(transformF)
-* restore()
-* writeFile([filename[, palette]])
-* getMetadata()
+* `Constructor(bitmapFile)`
+* `invert()`
+* `transform(transformF)`
+* `restore()`
+* `writeFile([filename[, palette]])`
+* `getMetadata()`
 
 Transformer
 -----------
@@ -68,8 +68,10 @@ Transformer
 
     `bitmap.writeFile('myBitmap', newPalette);
         // Saves 'myBitmap.bmp' with custom palette.
+
     bitmap.writeFile('myBitmap');
         // Saves 'myBitmap.bmp' with current palette.
+
     bitmap.writeFile();
         // Saves 'newBitmap.bmp' with current palette.`
 
@@ -90,4 +92,6 @@ Transformer
 In Development
 --------------
 * getPalette - Save the current palette (as Buffer type)
+
+* Compatibility with additional bitmap types
 
