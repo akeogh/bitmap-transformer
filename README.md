@@ -21,7 +21,7 @@ Table of Contents
 Transformer
 -----------
 
-* Constructor(bitmapFile)
+* `Constructor(bitmapFile)`
 
   To work with a new bitmap, create a `Transformer` object. Functions may be
   called on this object using dot notation. The constructor takes one argument,
@@ -31,35 +31,41 @@ Transformer
 
     `var newTransformer = new Transformer('bitmap.bmp');`
 
-* invert()
+* `invert()`
 
   Invert the colors of the bitmap as it is currently stored. Note this may be
   applied whether or not previous transformations have been applied (so, for
   instance, applying it twice to the same `Transformer` object will result in
   an image identical to the original). The file will not be written (see:
-  `writeFile`). Example:
+  `writeFile`).
+
+  Example:
 
     `var bitmap = new Transformer('bitmap.bmp');
     bitmap.invert();`
 
-* transform(transformF)
+* `transform(transformF)`
 
   Supply a custom transformation as a callback function. The callback is passed
   each individual byte from the bitmap palette. The file will not be written
-  (see: `writeFile`). Example:
+  (see: `writeFile`).
+
+  Example:
 
     `bitmap.transform(function(byte) {
       return Math.floor(byte / 3);
     });`
 
-* restore()
+* `restore()`
 
   Restore the color palette to its original state. The file will not be written
-  (see: `writeFile`). Example:
+  (see: `writeFile`).
+
+  Example:
 
     `bitmap.restore();`
 
-* writeFile([filename[, palette]])
+* `writeFile([filename[, palette]])`
 
   Write out the file with the current, transformed palette. Optional arguments
   include a custom filename without extension (will default to 'newBitmap.bmp'
@@ -75,10 +81,12 @@ Transformer
     bitmap.writeFile();
         // Saves 'newBitmap.bmp' with current palette.`
 
-* getMetadata()
+* `getMetadata()`
 
   Returns a string of basic information about the bitmap, including width, height,
-  number of colors, and the offset of the pixel map. Example:
+  number of colors, and the offset of the pixel map.
+
+  Example:
 
     `bitmap.getMetadata();
 
@@ -88,6 +96,13 @@ Transformer
     // Height: 100
     // Number of Colors: 256
     // PixelStart: 1078`
+
+  * `getPalette()`
+
+    Returns new buffer containing the current palette, transformed or not. Note
+    this palette will no longer be linked to the current transformer object. This
+    palette may be passed into `writeFile()` as an argument.
+
 
 In Development
 --------------
